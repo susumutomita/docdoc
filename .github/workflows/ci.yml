@@ -71,12 +71,12 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v2
 
-      # - name: Run FOSSA for license check
-      #   run: fossa analyze
-      #   env:
-      #     FOSSA_API_KEY: ${{ secrets.FOSSA_API_KEY }}
+      - name: Run FOSSA for license check
+        run: fossa analyze
+        env:
+          FOSSA_API_KEY: ${{ secrets.FOSSA_API_KEY }}
 
-      # - name: Run Snyk for vulnerability check
-      #   run: npx snyk test
-      #   env:
-      #     SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      - name: Run Snyk for vulnerability check
+        run: npx snyk test
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
