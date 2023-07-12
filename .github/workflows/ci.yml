@@ -39,14 +39,6 @@ jobs:
       - name: Run ESLint
         run: npm run lint
 
-      - name: Install FOSSA
-        run: curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash
-
-      - name: Run FOSSA for license check
-        run: fossa analyze
-        env:
-          FOSSA_API_KEY: ${{ secrets.FOSSA_API_KEY }}
-
       - name: Run Snyk for vulnerability check
         run: npx snyk test
         env:
@@ -72,13 +64,21 @@ jobs:
         with:
           path: ./out
 
+  fossa-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: fossas/fossa-action@main # Use a specific version if locking is preferred
+        with:
+          api-key: ${{secrets.fossaApiKey}}
+
   # Deployment job
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
+    needs: [build,fossa-scan]
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
