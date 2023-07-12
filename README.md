@@ -1,5 +1,4 @@
 [![CI](https://github.com/susumutomita/docdoc/actions/workflows/ci.yml/badge.svg)](https://github.com/susumutomita/docdoc/actions/workflows/ci.yml)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsusumutomita%2Fdocdoc.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsusumutomita%2Fdocdoc?ref=badge_shield)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
