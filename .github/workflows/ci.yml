@@ -39,6 +39,9 @@ jobs:
       - name: Run ESLint
         run: npm run lint
 
+      - name: Install FOSSA
+        run: curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash
+
       - name: Run FOSSA for license check
         run: fossa analyze
         env:
