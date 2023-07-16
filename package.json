@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "test": "jest --verbose",
-    "lint": "next lint --fix",
+    "lint": "next lint",
     "lint:fix": "next lint --fix"
   },
   "jest": {
