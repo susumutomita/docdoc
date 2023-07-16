@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "test": "jest --verbose",
-    "lint": "next lint"
+    "lint": "next lint --fix",
+    "lint:fix": "next lint --fix"
   },
   "jest": {
     "preset": "ts-jest",
