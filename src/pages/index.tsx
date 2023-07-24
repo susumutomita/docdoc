@@ -1,6 +1,7 @@
 // pages/index.tsx
 
 import Link from 'next/link'
+import './index.css';
 
 const HomePage = () => {
   return (

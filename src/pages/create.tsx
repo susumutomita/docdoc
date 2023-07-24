@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import db from '../firebaseConfig' // Firebaseの設定をインポートします
+import db from '../fire/firebaseConfig' // Firebaseの設定をインポートします
 
 const CreatePost = () => {
   const router = useRouter()
