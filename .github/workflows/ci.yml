@@ -53,8 +53,6 @@ jobs:
         env:
           CI: false
           PUBLIC_URL: "${{ steps.pages.outputs.base_url }}/"
-          NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
-          NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
