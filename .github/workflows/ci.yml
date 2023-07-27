@@ -82,6 +82,17 @@ jobs:
         with:
           api-key: ${{secrets.FOSSA_API_KEY}}
 
+  tryvy-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          trivy-config: trivy.yaml
+          image-ref: 'your-image-name:tag'
+
   # Deployment job
   deploy:
     environment:
