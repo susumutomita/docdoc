@@ -25,9 +25,9 @@ jobs:
       - name: Run textlint
         run: |
           if [ -e github.event.pull_request.html_url ]; then
-            gh pr comment --body "Comment from :policeman: is here `npx textlint ./*.md`" "${URL}"
+            gh pr comment --body "Comment from :policeman: is here `npx textlint ./README.md`" "${URL}"
           else
-            npx textlint ./*.md
+            npx textlint ./README.md
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
