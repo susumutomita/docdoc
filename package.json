@@ -11,7 +11,7 @@
     "test:verbose": "jest --verbose",
     "test:watch": "jest --watch",
     "lint": "next lint",
-    "lint:fix": "next --fix",
+    "lint:fix": "next lint --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
