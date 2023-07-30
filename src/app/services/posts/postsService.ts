@@ -1,6 +1,9 @@
 import { Post } from './types/postsServiceType'; // Post 型をインポート（適切に定義する必要があります）
 
-export async function createPost(title: string, content: string): Promise<Post> {
+export async function createPost(
+  title: string,
+  content: string,
+): Promise<Post> {
   if (!title) {
     throw new Error('A title is required.');
   }
