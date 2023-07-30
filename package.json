@@ -12,7 +12,8 @@
     "test:watch": "jest --watch",
     "lint": "next lint",
     "lint:fix": "next --fix",
-    "format": "prettier --write '**/*.{ts,tsx,js,json,css,md}'"
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "jest": {
     "preset": "ts-jest",
