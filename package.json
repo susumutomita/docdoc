@@ -9,6 +9,7 @@
     "start": "next start",
     "test": "jest",
     "test:verbose": "jest --verbose",
+    "test:watch": "jest --watch",
     "lint": "next lint",
     "lint:fix": "next lint --fix"
   },
@@ -43,6 +44,7 @@
     "eslint-config-next": "^13.4.12",
     "jest": "^29.6.1",
     "jest-environment-jsdom": "^29.6.1",
+    "jest-fetch-mock": "^3.0.3",
     "textlint": "^13.3.3",
     "textlint-rule-no-mixed-zenkaku-and-hankaku-alphabet": "^1.0.1",
     "textlint-rule-no-mixed-zenkaku-and-hankaku-number": "^1.0.0",
