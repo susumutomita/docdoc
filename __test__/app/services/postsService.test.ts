@@ -3,7 +3,7 @@
 */
 import '@testing-library/jest-dom/extend-expect'
 
-import { createPost } from '../src/app/services/posts/postsService';
+import { createPost } from '../../../src/app/services/posts/postsService';
 
 
 import fetchMock from 'jest-fetch-mock';
