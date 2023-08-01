@@ -29,6 +29,7 @@ describe('createPost', () => {
     const post = await createPost('My First Post', 'This is my first post.');
 
     // fetchが正しいURLとオプションで呼び出されたことを確認する
+    console.log(fetchMock.mock.calls[0][0]);
     expect(fetchMock.mock.calls[0][0]).toEqual('/api/posts');
     expect(fetchMock.mock.calls[0][1]).toEqual({
       method: 'POST',
