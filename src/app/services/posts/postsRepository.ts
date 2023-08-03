@@ -1,4 +1,3 @@
-// postsRepository.ts
 import app from '../../../../firebaseConfig';
 import {
   getFirestore,
@@ -13,7 +12,8 @@ const db = getFirestore(app);
 export async function getDataFromFirebase(
   collectionName: string,
 ): Promise<DocumentData[]> {
-  const querySnapshot = await getDocs(collection(collectionName));
+  const col = collection(db, collectionName); // db instance is added here
+  const querySnapshot = await getDocs(col);
   return querySnapshot.docs.map((doc: QueryDocumentSnapshot<DocumentData>) =>
     doc.data(),
   );
