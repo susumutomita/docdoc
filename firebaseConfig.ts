@@ -1,4 +1,4 @@
-// firebaseConfig.js
+// firebaseConfig.ts
 
 import { initializeApp } from 'firebase/app';
 
