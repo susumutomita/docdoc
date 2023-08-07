@@ -50,7 +50,7 @@ jobs:
           hugo \
             --minify \
             -D \
-            --baseURL "${{ steps.pages.outputs.base_url }}/doc/"  # Note the addition of /doc/ here
+            --baseURL "${{ steps.pages.outputs.base_url }}/docs/"  # Note the addition of /doc/ here
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
