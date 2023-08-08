@@ -3,15 +3,23 @@
  */
 import '@testing-library/jest-dom/extend-expect';
 
-import { createPost } from '../../../src/app/posts/postsService';
+import { PostsService } from '../../../src/app/posts/PostsService';
 
 import fetchMock from 'jest-fetch-mock';
 
 fetchMock.enableMocks();
+let postsService: PostsService;
+
+beforeEach(() => {
+  postsService = new PostsService();
+});
 
 describe('createPost', () => {
   it('creates a new post when title and content are given', async () => {
-    const post = await createPost('My First Post', 'This is my first post.');
+    const post = await postsService.createPost(
+      'My First Post',
+      'This is my first post.',
+    );
 
     expect(post).toEqual({
       id: '123',
@@ -26,7 +34,7 @@ describe('createPost', () => {
     expect.assertions(2);
 
     try {
-      await createPost('', 'This is a post without a title.');
+      await postsService.createPost('', 'This is a post without a title.');
     } catch (err) {
       if (err instanceof Error) {
         // check if err is an Error object
@@ -42,7 +50,7 @@ describe('createPost', () => {
     expect.assertions(2);
 
     try {
-      await createPost('Title without content', '');
+      await postsService.createPost('Title without content', '');
     } catch (err) {
       if (err instanceof Error) {
         // check if err is an Error object

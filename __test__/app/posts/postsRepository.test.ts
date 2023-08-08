@@ -1,5 +1,5 @@
 // postsRepository.test.ts
-import { getDataFromFirebase } from '../../../src/app/posts/postsRepository';
+import { PostsRepository } from '../../../src/app/posts/PostsRepository';
 import { getFirestore, getDocs, collection } from 'firebase/firestore';
 
 jest.mock('firebase/firestore', () => {
@@ -9,14 +9,31 @@ jest.mock('firebase/firestore', () => {
     getDocs: jest.fn(),
   };
 });
+let postsRepository: PostsRepository;
+
+beforeEach(() => {
+  postsRepository = new PostsRepository();
+});
 
 describe('postsRepository', () => {
   describe('getDataFromFirebase', () => {
     it('should return data from Firebase', async () => {
-      // テスト用に仮のデータを用意
+      // Prepare mock data for testing
       const mockData = [
-        { id: '1', title: 'Post 1', content: 'This is the first post.' },
-        { id: '2', title: 'Post 2', content: 'This is the second post.' },
+        {
+          id: '1',
+          title: 'Post 1',
+          content: 'This is the first post.',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          id: '2',
+          title: 'Post 2',
+          content: 'This is the second post.',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ];
 
       (getDocs as jest.Mock).mockResolvedValueOnce({
@@ -25,7 +42,7 @@ describe('postsRepository', () => {
         })),
       });
 
-      const data = await getDataFromFirebase('posts');
+      const data = await postsRepository.getDataFromFirebase('posts');
       expect(data).toEqual(mockData);
     });
   });
