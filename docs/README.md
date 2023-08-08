@@ -8,33 +8,23 @@ This site use [Hugo](https://gohugo.io/getting-started/quick-start/). To install
 
 ### Install submodules
 
-`
-git submodule update -i
-`
+`git submodule update -i`
 
 ### Add new content
 
-`
-Hugo new <File name>
-`
+`Hugo new <File name>`
 
 Example
 
-`
-hugo new test.ja_jp.md
-`
+`hugo new test.ja_jp.md`
 
 ### Start local server
 
-`
-hugo server -D
-`
+`hugo server -D`
 
 or
 
-`
-docker-compose up -d
-`
+`docker-compose up -d`
 
 ### Deploy to GitHub Pages
 

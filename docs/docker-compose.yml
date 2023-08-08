@@ -4,6 +4,6 @@ services:
     image: klakegg/hugo
     command: server
     volumes:
-      - ".:/src"
+      - '.:/src'
     ports:
-      - "1313:1313"
+      - '1313:1313'
