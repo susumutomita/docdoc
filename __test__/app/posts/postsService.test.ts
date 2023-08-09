@@ -11,6 +11,7 @@ fetchMock.enableMocks();
 let postsService: PostsService;
 
 beforeEach(() => {
+  fetchMock.resetMocks();
   postsService = new PostsService();
 });
 

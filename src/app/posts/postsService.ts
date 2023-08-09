@@ -2,10 +2,10 @@ import { Post } from './PostsType';
 import { PostsRepository } from './PostsRepository';
 
 export class PostsService {
-  private PostsRepository: PostsRepository;
+  private postsRepository: PostsRepository;
 
   constructor() {
-    this.PostsRepository = new PostsRepository();
+    this.postsRepository = new PostsRepository();
   }
 
   async createPost(title: string, content: string): Promise<Post> {
@@ -17,21 +17,24 @@ export class PostsService {
       throw new Error('Content is required.');
     }
 
-    // Firebase などの API を呼び出し、新しい投稿を作成します。
-    // この部分は具体的な実装によります。
-
-    // 新しい投稿のデータを返します。
-    return {
-      id: '123', // 実際には API から得たデータを使用します
+    const post = {
       title: title,
       content: content,
       createdAt: new Date(),
       updatedAt: new Date(),
     };
-  }
 
-  async getPosts(): Promise<Post[]> {
-    const posts = await this.PostsRepository.getDataFromFirebase('posts');
-    return posts as Post[];
+    const newPost = await this.postsRepository.createDataInFirebase(
+      'posts',
+      post,
+    );
+
+    return {
+      id: newPost.id,
+      title: newPost.title,
+      content: newPost.content,
+      createdAt: newPost.createdAt.toDate(),
+      updatedAt: newPost.updatedAt.toDate(),
+    };
   }
 }
