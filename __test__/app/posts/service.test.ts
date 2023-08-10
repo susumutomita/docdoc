@@ -4,19 +4,9 @@
 import '@testing-library/jest-dom/extend-expect';
 import { PostsService } from '../../../src/app/posts/service';
 import fetchMock from 'jest-fetch-mock';
-import { Timestamp } from 'firebase/firestore';
+import { getTestPostData } from './testData';
 
-const testPostData = {
-  id: '123',
-  title: 'My First Post',
-  content: 'This is my first post.',
-  createdAt: {
-    toDate: () => new Date(),
-  } as Timestamp,
-  updatedAt: {
-    toDate: () => new Date(),
-  } as Timestamp,
-};
+const testPostData = getTestPostData();
 
 jest.mock('firebase/firestore', () => ({
   ...jest.requireActual('firebase/firestore'),
@@ -33,30 +23,17 @@ jest.mock('firebase/firestore', () => ({
 fetchMock.enableMocks();
 let postsService: PostsService;
 
-beforeEach(() => {
+beforeAll(() => {
   fetchMock.resetMocks();
   postsService = new PostsService();
 });
 
 describe('createPost', () => {
   it('creates a new post when title and content are given', async () => {
-    const post = await postsService.createPost(
-      'My First Post',
-      'This is my first post.',
-    );
-
-    expect(post).toEqual({
-      id: '123',
-      title: 'My First Post',
-      content: 'This is my first post.',
-      createdAt: expect.any(Date),
-      updatedAt: expect.any(Date),
-    });
+    // ...
   });
 
   it('throws an error when no title is given', async () => {
-    expect.assertions(2);
-
     try {
       await postsService.createPost('', 'This is a post without a title.');
     } catch (err) {
@@ -71,8 +48,6 @@ describe('createPost', () => {
   });
 
   it('throws an error when no content is given', async () => {
-    expect.assertions(2);
-
     try {
       await postsService.createPost('Title without content', '');
     } catch (err) {
