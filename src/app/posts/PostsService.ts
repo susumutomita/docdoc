@@ -1,5 +1,5 @@
-import { Post } from './type';
-import { PostsRepository } from './repository';
+import { Post } from './PostsType';
+import { PostsRepository } from './PostsRepository';
 
 export class PostsService {
   private postsRepository: PostsRepository;

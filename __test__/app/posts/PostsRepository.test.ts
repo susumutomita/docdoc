@@ -1,5 +1,5 @@
 // postsRepository.test.ts
-import { PostsRepository } from '../../../src/app/posts/repository';
+import { PostsRepository } from '../../../src/app/posts/PostsRepository';
 import { getDocs } from 'firebase/firestore';
 
 jest.mock('firebase/firestore', () => {
