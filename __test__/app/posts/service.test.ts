@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import '@testing-library/jest-dom/extend-expect';
-import { PostsService } from '../../../src/app/posts/PostsService';
+import { PostsService } from '../../../src/app/posts/service';
 import fetchMock from 'jest-fetch-mock';
 
 fetchMock.enableMocks();
