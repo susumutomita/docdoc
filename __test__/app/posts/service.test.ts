@@ -4,6 +4,31 @@
 import '@testing-library/jest-dom/extend-expect';
 import { PostsService } from '../../../src/app/posts/service';
 import fetchMock from 'jest-fetch-mock';
+import { Timestamp } from 'firebase/firestore';
+
+const testPostData = {
+  id: '123',
+  title: 'My First Post',
+  content: 'This is my first post.',
+  createdAt: {
+    toDate: () => new Date(),
+  } as Timestamp,
+  updatedAt: {
+    toDate: () => new Date(),
+  } as Timestamp,
+};
+
+jest.mock('firebase/firestore', () => ({
+  ...jest.requireActual('firebase/firestore'),
+  getDocs: jest.fn(() => Promise.resolve(/* テストデータ */)),
+  setDoc: jest.fn(() => Promise.resolve(/* テストデータ */)),
+  doc: jest.fn(() => Promise.resolve(/* テストデータ */)),
+  getDoc: jest.fn(() =>
+    Promise.resolve({
+      data: () => testPostData,
+    }),
+  ),
+}));
 
 fetchMock.enableMocks();
 let postsService: PostsService;
