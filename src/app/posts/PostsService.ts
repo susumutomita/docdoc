@@ -29,6 +29,10 @@ export class PostsService {
       post,
     );
 
+    if (!newPost) {
+      throw new Error('Failed to create post.');
+    }
+
     return {
       id: newPost.id,
       title: newPost.title,

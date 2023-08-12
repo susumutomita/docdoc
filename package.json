@@ -21,6 +21,7 @@
   },
   "jest": {
     "preset": "ts-jest",
+    "coverageReporters": ["lcov"],
     "testEnvironment": "jest-environment-jsdom",
     "testPathIgnorePatterns": [
       "<rootDir>/.next/",
