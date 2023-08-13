@@ -12,6 +12,7 @@
     "test:coverage": "jest --coverage",
     "test:verbose": "jest --verbose",
     "test:watch": "jest --watch",
+    "textlint": "npx textlint ./README.md",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "lint-staged": "lint-staged",
