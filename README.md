@@ -5,7 +5,6 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/susumutomita/docdoc)
 ![GitHub repo size](https://img.shields.io/github/repo-size/susumutomita/docdoc)
 
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
