@@ -1,5 +1,3 @@
-import { Analytics } from '@vercel/analytics/react';
-
 export default function RootLayout({
   children,
 }: {
@@ -7,7 +5,6 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <Analytics id="UA-XXXXXXXXX-X" />
       <main>{children}</main>
     </>
   );
