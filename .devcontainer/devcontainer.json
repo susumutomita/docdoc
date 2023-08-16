@@ -1,0 +1,34 @@
+{
+  "name": "Node.js 16",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "web",
+  "workspaceFolder": "/app",
+  "forwardPorts": [
+    3000
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "github.copilot",
+        "streetsidesoftware.code-spell-checker",
+        "jeff-hykin.code-eol",
+        "kamikillerto.vscode-colorize",
+        "mikestead.dotenv",
+        "hediet.vscode-drawio",
+        "dsznajder.es7-react-js-snippets",
+        "github.vscode-github-actions",
+        "wyze.theme-hybrid-next",
+        "oderwat.indent-rainbow",
+        "emilast.logfilehighlighter",
+        "yzhang.markdown-all-in-one",
+        "ionutvmi.path-autocomplete",
+        "mechatroner.rainbow-csv",
+        "shardulm94.trailing-spaces",
+        "mosapride.zenkaku",
+        "masakit.zenkaku-hankaku"
+      ]
+    }
+  },
+  "remoteUser": "root"
+}
