@@ -1,7 +1,7 @@
 import Layout from '../components/Layout';
 
 const HomePage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
+  <Layout>
     <p>Welcome to next.js!</p>
     <hr />
   </Layout>
