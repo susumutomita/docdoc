@@ -23,6 +23,10 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+      - name: Debug dependencies
+        run: |
+          ls node_modules/@testing-library
+          npm list @testing-library/jest-dom
 
       - name: Check formatting
         run: npm run format:check
