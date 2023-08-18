@@ -15,35 +15,37 @@ beforeEach(() => {
   postsRepository = new PostsRepository();
 });
 
-describe('postsRepository', () => {
-  describe('getDataFromFirebase', () => {
-    it('should return data from Firebase', async () => {
-      // Prepare mock data for testing
-      const mockData = [
-        {
-          id: '1',
-          title: 'Post 1',
-          content: 'This is the first post.',
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-        {
-          id: '2',
-          title: 'Post 2',
-          content: 'This is the second post.',
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-      ];
+describe('PostsRepository test', () => {
+  describe('Firebase access test', () => {
+    describe('getDataFromFirebase', () => {
+      it('should return data from Firebase', async () => {
+        // Prepare mock data for testing
+        const mockData = [
+          {
+            id: '1',
+            title: 'Post 1',
+            content: 'This is the first post.',
+            createdAt: new Date(),
+            updatedAt: new Date(),
+          },
+          {
+            id: '2',
+            title: 'Post 2',
+            content: 'This is the second post.',
+            createdAt: new Date(),
+            updatedAt: new Date(),
+          },
+        ];
 
-      (getDocs as jest.Mock).mockResolvedValueOnce({
-        docs: mockData.map(data => ({
-          data: () => data,
-        })),
+        (getDocs as jest.Mock).mockResolvedValueOnce({
+          docs: mockData.map(data => ({
+            data: () => data,
+          })),
+        });
+
+        const data = await postsRepository.getDataFromFirebase('posts');
+        expect(data).toEqual(mockData);
       });
-
-      const data = await postsRepository.getDataFromFirebase('posts');
-      expect(data).toEqual(mockData);
     });
   });
 });

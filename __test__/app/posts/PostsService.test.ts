@@ -27,37 +27,38 @@ beforeAll(() => {
   fetchMock.resetMocks();
   postsService = new PostsService();
 });
+describe('PostsService tests', () => {
+  describe('createPost', () => {
+    it('creates a new post when title and content are given', async () => {
+      // ...
+    });
 
-describe('createPost', () => {
-  it('creates a new post when title and content are given', async () => {
-    // ...
-  });
-
-  it('throws an error when no title is given', async () => {
-    try {
-      await postsService.createPost('', 'This is a post without a title.');
-    } catch (err) {
-      if (err instanceof Error) {
-        // check if err is an Error object
-        expect(err.message).toEqual('A title is required.');
+    it('throws an error with message "A title is required." when no title is given', async () => {
+      try {
+        await postsService.createPost('', 'This is a post without a title.');
+      } catch (err) {
+        if (err instanceof Error) {
+          // check if err is an Error object
+          expect(err.message).toEqual('A title is required.');
+        }
       }
-    }
 
-    // fetchが呼び出されないことを確認する
-    expect(fetchMock.mock.calls.length).toEqual(0);
-  });
+      // fetchが呼び出されないことを確認する
+      expect(fetchMock.mock.calls.length).toEqual(0);
+    });
 
-  it('throws an error when no content is given', async () => {
-    try {
-      await postsService.createPost('Title without content', '');
-    } catch (err) {
-      if (err instanceof Error) {
-        // check if err is an Error object
-        expect(err.message).toEqual('Content is required.');
+    it('throws an error  with message "Content is required."  when no content is given', async () => {
+      try {
+        await postsService.createPost('Title without content', '');
+      } catch (err) {
+        if (err instanceof Error) {
+          // check if err is an Error object
+          expect(err.message).toEqual('Content is required.');
+        }
       }
-    }
 
-    // fetchが呼び出されないことを確認する
-    expect(fetchMock.mock.calls.length).toEqual(0);
+      // fetchが呼び出されないことを確認する
+      expect(fetchMock.mock.calls.length).toEqual(0);
+    });
   });
 });
