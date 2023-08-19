@@ -24,7 +24,8 @@
         "mechatroner.rainbow-csv",
         "shardulm94.trailing-spaces",
         "mosapride.zenkaku",
-        "masakit.zenkaku-hankaku"
+        "masakit.zenkaku-hankaku",
+        "ms-azuretools.vscode-docker"
       ]
     }
   },
