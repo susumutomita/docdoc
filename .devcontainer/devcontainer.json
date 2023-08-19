@@ -1,5 +1,5 @@
 {
-  "name": "Node.js 16",
+  "name": "docdoc",
   "dockerComposeFile": "../docker-compose.yaml",
   "service": "web",
   "workspaceFolder": "/app",
