@@ -25,7 +25,10 @@
         "shardulm94.trailing-spaces",
         "mosapride.zenkaku",
         "masakit.zenkaku-hankaku",
-        "ms-azuretools.vscode-docker"
+        "ms-azuretools.vscode-docker",
+        "ecmel.vscode-html-css",
+        "github.copilot-labs",
+        "github.copilot-chat"
       ]
     }
   },
