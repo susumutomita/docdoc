@@ -1,6 +1,15 @@
 import Link from 'next/link';
+import { Post } from '../app/posts/PostsType';
 
-const PostItem = ({ post }) => {
+interface PostItemProps {
+  post: Post;
+}
+
+const PostItem = ({ post }: PostItemProps) => {
+  const createMarkup = () => {
+    return { __html: post.content };
+  };
+
   return (
     <div>
       <h2>
@@ -8,7 +17,7 @@ const PostItem = ({ post }) => {
           <a>{post.title}</a>
         </Link>
       </h2>
-      <p>{post.body}</p>
+      <p dangerouslySetInnerHTML={createMarkup()}></p>
     </div>
   );
 };
