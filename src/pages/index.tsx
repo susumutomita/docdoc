@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import PostItem from '../components/PostItem';
+import { Post } from '../app/posts/PostsType';
 
 const PostList = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -17,9 +18,11 @@ const PostList = () => {
   return (
     <div>
       <h1>投稿一覧</h1>
-      {posts.map(post => (
-        <PostItem key={post.id} post={post} />
-      ))}
+      {posts.length > 0 ? (
+        posts.map(post => <PostItem key={post.id} post={post} />)
+      ) : (
+        <p>投稿がありません。</p>
+      )}
     </div>
   );
 };
