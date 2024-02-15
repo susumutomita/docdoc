@@ -20,7 +20,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@vercel/analytics": "^1.1.1",
+    "@vercel/analytics": "^1.1.4",
     "autoprefixer": "10.4.16",
     "firebase": "^10.7.2",
     "next": "13.5.5",
