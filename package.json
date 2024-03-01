@@ -22,7 +22,7 @@
   "dependencies": {
     "@vercel/analytics": "^1.2.1",
     "autoprefixer": "10.4.16",
-    "firebase": "^10.7.2",
+    "firebase": "^10.8.1",
     "next": "13.5.5",
     "postcss": "8.4.30",
     "react": "18.2.0",
