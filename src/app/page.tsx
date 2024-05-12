@@ -1,7 +1,9 @@
+'use client';
 import axios from 'axios';
 import { useState } from 'react';
 import type { NextPage } from 'next';
 
+// use client
 const Home: NextPage = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');

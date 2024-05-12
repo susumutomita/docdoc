@@ -17,7 +17,9 @@
     "lint-staged": "lint-staged",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "db:drop": "npx prisma db query 'DROP DATABASE your_database_name' --schema ./src/app/pages/prisma/schema.prisma",
+    "db:migrate": "npx prisma migrate dev --schema ./src/app/pages/prisma/schema.prisma"
   },
   "dependencies": {
     "@prisma/client": "^5.13.0",
