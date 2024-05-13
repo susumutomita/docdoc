@@ -5,7 +5,8 @@ export async function GET() {
     return NextResponse.json({ message: "'It, works!'" });
   } catch (error) {
     return NextResponse.json(
-      `{ message: "'An error occurred while retrieving the users.'", error: error.message }, { status: 500 }`,
+      { message: 'An error occurred while health check.' },
+      { status: 500 },
     );
   }
 }
