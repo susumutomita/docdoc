@@ -3,7 +3,6 @@ import { NextResponse } from 'next/server';
 
 const prisma = new PrismaClient({ log: ['query'] });
 
-// POST メソッドのハンドラー
 export async function POST(req: Request) {
   try {
     const { title, content, authorId } = await req.json();
@@ -19,7 +18,6 @@ export async function POST(req: Request) {
   }
 }
 
-// GET メソッドのハンドラー
 export async function GET() {
   try {
     const posts = await prisma.post.findMany({
