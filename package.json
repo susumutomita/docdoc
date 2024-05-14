@@ -18,9 +18,11 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky install",
+    "db:seed": "npx prisma db seed --schema ./src/app/prisma/schema.prisma",
     "db:setup": "npx prisma generate --schema ./src/app/prisma/schema.prisma",
     "db:drop": "npx prisma db query 'DROP DATABASE your_database_name' --schema ./src/app/prisma/schema.prisma",
     "db:migrate": "npx prisma migrate dev --schema ./src/app/prisma/schema.prisma",
+    "db:reset": "npx prisma migrate reset --schema ./src/app/prisma/schema.prisma",
     "db:studio": "npx prisma studio --schema ./src/app/prisma/schema.prisma"
   },
   "dependencies": {
@@ -32,6 +34,9 @@
     "prisma": "^5.13.0",
     "react": "18.3.0",
     "react-dom": "18.2.0"
+  },
+  "prisma": {
+    "seed": "ts-node src/app/prisma/seed.ts"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.2",
