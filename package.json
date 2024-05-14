@@ -20,7 +20,8 @@
     "prepare": "husky install",
     "db:setup": "npx prisma generate --schema ./src/app/prisma/schema.prisma",
     "db:drop": "npx prisma db query 'DROP DATABASE your_database_name' --schema ./src/app/prisma/schema.prisma",
-    "db:migrate": "npx prisma migrate dev --schema ./src/app/prisma/schema.prisma"
+    "db:migrate": "npx prisma migrate dev --schema ./src/app/prisma/schema.prisma",
+    "db:studio": "npx prisma studio --schema ./src/app/prisma/schema.prisma"
   },
   "dependencies": {
     "@prisma/client": "^5.13.0",
