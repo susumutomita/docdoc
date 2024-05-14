@@ -3,22 +3,13 @@ import { NextResponse } from 'next/server';
 
 const prisma = new PrismaClient();
 
-export async function POST(req: Request) {
+export async function POST(request: Request) {
+  const { email, name } = await request.json();
   try {
-    const { name, email, posts, profile } = await req.json();
     const user = await prisma.user.create({
-      data: {
-        name: name,
-        email: email,
-        posts: {
-          create: { title: posts },
-        },
-        profile: {
-          create: { bio: profile },
-        },
-      },
+      data: { email, name },
     });
-    return NextResponse.json(user);
+    return NextResponse.json(user, { status: 201 });
   } catch (error) {
     return NextResponse.json(
       { message: 'An error occurred while creating the user.' },
