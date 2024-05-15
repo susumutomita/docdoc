@@ -1,20 +1,29 @@
-import { GET } from '../src/app/api/health/route';
+import { POST, GET } from '../src/app/api/users/route';
 
-describe('Health Check API', () => {
-  it('should return a 200 status with a message', async () => {
-    process.env.TEST_ERROR = 'false';
-    const response = await GET();
-    expect(response.status).toBe(200);
-    expect(await response.json()).toEqual({ message: "'It works!'" });
+describe('Users API', () => {
+  it('should create a user and return 201 status', async () => {
+    const requestBody = JSON.stringify({
+      email: 'test@example.com',
+      name: 'Test User',
+    });
+    const request = new Request('http://localhost:3000/api/users', {
+      method: 'POST',
+      body: requestBody,
+    });
+
+    const response = await POST(request);
+
+    expect(response.status).toBe(201);
+    const user = await response.json();
+    expect(user).toHaveProperty('email', 'test@example.com');
+    expect(user).toHaveProperty('name', 'Test User');
   });
 
-  it('should handle errors gracefully', async () => {
-    process.env.TEST_ERROR = 'true';
+  it('should retrieve all users and return 200 status', async () => {
     const response = await GET();
-    expect(response.status).toBe(500);
-    expect(await response.json()).toEqual({
-      message: 'An error occurred while health check.',
-    });
-    process.env.TEST_ERROR = 'false';
+
+    expect(response.status).toBe(200);
+    const users = await response.json();
+    expect(Array.isArray(users)).toBe(true);
   });
 });
