@@ -2,6 +2,7 @@ module.exports = {
   preset: 'ts-jest',
   coverageReporters: ['lcov'],
   testEnvironment: 'node',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
   moduleNameMapper: {
     '\\.(css)$': '<rootDir>/node_modules/jest-css-modules',

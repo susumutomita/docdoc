@@ -12,6 +12,21 @@ jobs:
   build:
     name: Build and Test
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: user
+          POSTGRES_PASSWORD: password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U user"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
       - name: Check out code
         uses: actions/checkout@v4
@@ -33,6 +48,9 @@ jobs:
 
       - name: Run ESLint
         run: npm run lint
+
+      - name: Setup database
+        run: npm run db:setup
 
       - name: Run tests with coverage
         run: npm run test:coverage
