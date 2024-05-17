@@ -49,11 +49,12 @@ jobs:
       - name: Run ESLint
         run: npm run lint
 
-      - name: Setup database
-        run: npm run db:setup
-
       - name: Run tests with coverage
-        run: npm run test:coverage
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          npm run db:setup
+          npm run test:coverage
 
       - name: Coveralls
         uses: coverallsapp/github-action@v2
