@@ -54,6 +54,7 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
           npm run db:setup
+          npm run db:migrate
           npm run test:coverage
 
       - name: Coveralls
