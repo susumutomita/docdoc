@@ -4,10 +4,22 @@ const prisma = new PrismaClient();
 
 beforeAll(async () => {
   await prisma.$connect();
-  // 必要に応じてデータベースの初期化やセットアップ
 });
 
 afterAll(async () => {
   await prisma.$disconnect();
-  // 必要に応じてデータベースのクリーンアップ
+});
+
+beforeEach(async () => {
+  await prisma.$transaction([
+    prisma.post.deleteMany(),
+    prisma.user.deleteMany(),
+  ]);
+});
+
+afterEach(async () => {
+  await prisma.$transaction([
+    prisma.post.deleteMany(),
+    prisma.user.deleteMany(),
+  ]);
 });
