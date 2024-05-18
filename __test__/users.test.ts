@@ -1,4 +1,5 @@
-import { POST, GET, PUT, DELETE } from '../src/app/api/users/route';
+import { POST, GET } from '../src/app/api/users/route';
+import { GET as GET_ID, PUT, DELETE } from '../src/app/api/users/[id]/route';
 
 describe('Users API', () => {
   it('should create a user and return 201 status', async () => {
@@ -27,31 +28,58 @@ describe('Users API', () => {
     expect(Array.isArray(users)).toBe(true);
   });
 
+  it('should retrieve a specific user by ID and return 200 status', async () => {
+    const requestBody = JSON.stringify({
+      email: 'specific@example.com',
+      name: 'Specific User',
+    });
+    const createRequest = new Request('http://localhost:3000/api/users', {
+      method: 'POST',
+      body: requestBody,
+    });
+
+    const createResponse = await POST(createRequest);
+    const createdUser = await createResponse.json();
+
+    const response = await GET_ID(
+      new Request(`http://localhost:3000/api/users/${createdUser.id}`),
+      { params: { id: createdUser.id.toString() } },
+    );
+
+    expect(response.status).toBe(200);
+    const user = await response.json();
+    expect(user).toHaveProperty('email', 'specific@example.com');
+    expect(user).toHaveProperty('name', 'Specific User');
+  });
+
   it('should update a user and return 200 status', async () => {
     const requestBody = JSON.stringify({
       email: 'update@example.com',
       name: 'Update User',
     });
-    const request = new Request('http://localhost:3000/api/users', {
+    const createRequest = new Request('http://localhost:3000/api/users', {
       method: 'POST',
       body: requestBody,
     });
 
-    const response = await POST(request);
-    const createdUser = await response.json();
+    const createResponse = await POST(createRequest);
+    const createdUser = await createResponse.json();
 
-    // Update the user
     const updateRequestBody = JSON.stringify({
-      id: createdUser.id,
       email: 'updated@example.com',
       name: 'Updated User',
     });
-    const updateRequest = new Request('http://localhost:3000/api/users', {
-      method: 'PUT',
-      body: updateRequestBody,
-    });
+    const updateRequest = new Request(
+      `http://localhost:3000/api/users/${createdUser.id}`,
+      {
+        method: 'PUT',
+        body: updateRequestBody,
+      },
+    );
 
-    const updateResponse = await PUT(updateRequest);
+    const updateResponse = await PUT(updateRequest, {
+      params: { id: createdUser.id.toString() },
+    });
 
     expect(updateResponse.status).toBe(200);
     const updatedUser = await updateResponse.json();
@@ -60,26 +88,28 @@ describe('Users API', () => {
   });
 
   it('should delete a user and return 204 status', async () => {
-    // Create a user first
     const requestBody = JSON.stringify({
       email: 'delete@example.com',
       name: 'Delete User',
     });
-    const request = new Request('http://localhost:3000/api/users', {
+    const createRequest = new Request('http://localhost:3000/api/users', {
       method: 'POST',
       body: requestBody,
     });
 
-    const response = await POST(request);
-    const createdUser = await response.json();
+    const createResponse = await POST(createRequest);
+    const createdUser = await createResponse.json();
 
-    const deleteRequestBody = JSON.stringify({ id: createdUser.id });
-    const deleteRequest = new Request('http://localhost:3000/api/users', {
-      method: 'DELETE',
-      body: deleteRequestBody,
+    const deleteRequest = new Request(
+      `http://localhost:3000/api/users/${createdUser.id}`,
+      {
+        method: 'DELETE',
+      },
+    );
+
+    const deleteResponse = await DELETE(deleteRequest, {
+      params: { id: createdUser.id.toString() },
     });
-
-    const deleteResponse = await DELETE(deleteRequest);
 
     expect(deleteResponse.status).toBe(204);
   });

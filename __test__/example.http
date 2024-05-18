@@ -3,6 +3,11 @@
 GET http://localhost:3000/api/users HTTP/1.1
 
 ###
+
+GET http://localhost:3000/api/users/52 HTTP/1.1
+
+###
+
 POST http://localhost:3000/api/users HTTP/1.1
 Content-Type: application/json
 
@@ -12,20 +17,15 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:3000/api/users HTTP/1.1
+
+PUT http://localhost:3000/api/users/52 HTTP/1.1
 Content-Type: application/json
 
 {
-  "id": 35,
   "email": "updatedelete@example.com",
   "name": "Delete User updated"
 }
 
-
 ###
-DELETE http://localhost:3000/api/users HTTP/1.1
-Content-Type: application/json
 
-{
-  "id": 37
-}
+DELETE http://localhost:3000/api/users/53 HTTP/1.1
