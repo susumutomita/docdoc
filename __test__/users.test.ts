@@ -28,33 +28,33 @@ describe('Users API', () => {
   });
 
   it('should update a user and return 200 status', async () => {
-    let requestBody = JSON.stringify({
+    const requestBody = JSON.stringify({
       email: 'update@example.com',
       name: 'Update User',
     });
-    let request = new Request('http://localhost:3000/api/users', {
+    const request = new Request('http://localhost:3000/api/users', {
       method: 'POST',
       body: requestBody,
     });
 
-    let response = await POST(request);
+    const response = await POST(request);
     const createdUser = await response.json();
 
     // Update the user
-    requestBody = JSON.stringify({
+    const updateRequestBody = JSON.stringify({
       id: createdUser.id,
       email: 'updated@example.com',
       name: 'Updated User',
     });
-    request = new Request('http://localhost:3000/api/users', {
+    const updateRequest = new Request('http://localhost:3000/api/users', {
       method: 'PUT',
-      body: requestBody,
+      body: updateRequestBody,
     });
 
-    response = await PUT(request);
+    const updateResponse = await PUT(updateRequest);
 
-    expect(response.status).toBe(200);
-    const updatedUser = await response.json();
+    expect(updateResponse.status).toBe(200);
+    const updatedUser = await updateResponse.json();
     expect(updatedUser).toHaveProperty('email', 'updated@example.com');
     expect(updatedUser).toHaveProperty('name', 'Updated User');
   });
@@ -65,23 +65,22 @@ describe('Users API', () => {
       email: 'delete@example.com',
       name: 'Delete User',
     });
-    let request = new Request('http://localhost:3000/api/users', {
+    const request = new Request('http://localhost:3000/api/users', {
       method: 'POST',
       body: requestBody,
     });
 
-    let response = await POST(request);
+    const response = await POST(request);
     const createdUser = await response.json();
 
-    // Delete the user
     const deleteRequestBody = JSON.stringify({ id: createdUser.id });
-    request = new Request('http://localhost:3000/api/users', {
+    const deleteRequest = new Request('http://localhost:3000/api/users', {
       method: 'DELETE',
       body: deleteRequestBody,
     });
 
-    response = await DELETE(request);
+    const deleteResponse = await DELETE(deleteRequest);
 
-    expect(response.status).toBe(500);
+    expect(deleteResponse.status).toBe(204);
   });
 });
