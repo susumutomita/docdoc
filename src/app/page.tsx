@@ -48,6 +48,8 @@ const Home: NextPage = () => {
         <button type="submit">Submit</button>
       </form>
       <Link href="/users">Create User</Link>
+      <br />
+      <Link href="/api-docs">API Documentation</Link>
     </div>
   );
 };
