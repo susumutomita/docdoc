@@ -2,7 +2,6 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
   try {
-    // Intentional error for testing
     if (process.env.TEST_ERROR === 'true') {
       throw new Error('Test error');
     }
