@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import { POST as POST_USER } from '../src/app/api/users/route';
 import { POST, GET } from '../src/app/api/posts/route';
 import { GET as GET_ID, PUT, DELETE } from '../src/app/api/posts/[id]/route';
 
@@ -8,13 +9,17 @@ describe('Posts API', () => {
   let userId: number;
 
   beforeEach(async () => {
-    // テストごとにユーザーを作成し、そのIDを取得
-    const user = await prisma.user.create({
-      data: {
-        email: `testuser-${Date.now()}@example.com`,
-        name: 'Test User',
-      },
+    const requestBody = JSON.stringify({
+      email: `testuser-${Date.now()}@example.com`,
+      name: 'Test User',
     });
+    const request = new Request('http://localhost:3000/api/users', {
+      method: 'POST',
+      body: requestBody,
+    });
+
+    const response = await POST_USER(request);
+    const user = await response.json();
     userId = user.id;
   });
 
@@ -32,7 +37,7 @@ describe('Posts API', () => {
       title: 'Test Post',
       body: 'This is a test post.',
       tags: ['test', 'example'],
-      author_id: userId, // 作成したユーザーIDを使用
+      author_id: userId,
     });
     const request = new Request('http://localhost:3000/api/posts', {
       method: 'POST',
@@ -60,7 +65,7 @@ describe('Posts API', () => {
       title: 'Specific Post',
       body: 'This is a specific post.',
       tags: ['specific'],
-      author_id: userId, // 作成したユーザーIDを使用
+      author_id: userId,
     });
     const createRequest = new Request('http://localhost:3000/api/posts', {
       method: 'POST',
@@ -86,7 +91,7 @@ describe('Posts API', () => {
       title: 'Update Post',
       body: 'This post will be updated.',
       tags: ['update'],
-      author_id: userId, // 作成したユーザーIDを使用
+      author_id: userId,
     });
     const createRequest = new Request('http://localhost:3000/api/posts', {
       method: 'POST',
@@ -124,7 +129,7 @@ describe('Posts API', () => {
       title: 'Delete Post',
       body: 'This post will be deleted.',
       tags: ['delete'],
-      author_id: userId, // 作成したユーザーIDを使用
+      author_id: userId,
     });
     const createRequest = new Request('http://localhost:3000/api/posts', {
       method: 'POST',
