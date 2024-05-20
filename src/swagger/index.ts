@@ -1,4 +1,5 @@
 import usersSwagger from './users';
+import postsSwagger from './posts';
 
 const swaggerJson = {
   openapi: '3.0.0',
@@ -8,6 +9,7 @@ const swaggerJson = {
   },
   paths: {
     ...usersSwagger.paths,
+    ...postsSwagger.paths,
   },
 };
 
