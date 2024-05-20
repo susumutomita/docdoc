@@ -19,7 +19,7 @@
     "format:check": "prettier --check .",
     "prepare": "husky install",
     "db:seed": "npx prisma db seed --schema ./src/app/prisma/schema.prisma",
-    "db:setup": "npx prisma generate --schema ./src/app/prisma/schema.prisma",
+    "db:generate": "npx prisma generate --schema ./src/app/prisma/schema.prisma",
     "db:drop": "npx prisma db query 'DROP DATABASE your_database_name' --schema ./src/app/prisma/schema.prisma",
     "db:migrate": "npx prisma migrate dev --schema ./src/app/prisma/schema.prisma",
     "db:reset": "npx prisma migrate reset --schema ./src/app/prisma/schema.prisma",

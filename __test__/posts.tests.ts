@@ -18,6 +18,15 @@ describe('Posts API', () => {
     userId = user.id;
   });
 
+  afterEach(async () => {
+    await prisma.$transaction([
+      prisma.postTag.deleteMany(),
+      prisma.tag.deleteMany(),
+      prisma.post.deleteMany(),
+      prisma.user.deleteMany(),
+    ]);
+  });
+
   it('should create a post and return 201 status', async () => {
     const requestBody = JSON.stringify({
       title: 'Test Post',
@@ -137,5 +146,41 @@ describe('Posts API', () => {
     });
 
     expect(deleteResponse.status).toBe(204);
+  });
+
+  it('should return 404 when trying to update a non-existent post', async () => {
+    const updateRequestBody = JSON.stringify({
+      title: 'Non-existent Post',
+      body: 'This post does not exist.',
+      tags: ['nonexistent'],
+    });
+    const updateRequest = new Request(
+      `http://localhost:3000/api/posts/999999`,
+      {
+        method: 'PUT',
+        body: updateRequestBody,
+      },
+    );
+
+    const updateResponse = await PUT(updateRequest, {
+      params: { id: '999999' },
+    });
+
+    expect(updateResponse.status).toBe(404);
+  });
+
+  it('should return 404 when trying to delete a non-existent post', async () => {
+    const deleteRequest = new Request(
+      `http://localhost:3000/api/posts/999999`,
+      {
+        method: 'DELETE',
+      },
+    );
+
+    const deleteResponse = await DELETE(deleteRequest, {
+      params: { id: '999999' },
+    });
+
+    expect(deleteResponse.status).toBe(404);
   });
 });

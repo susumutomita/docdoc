@@ -40,6 +40,8 @@ describe('Users API', () => {
 
     const createResponse = await POST(createRequest);
     const createdUser = await createResponse.json();
+    console.debug(createdUser);
+    console.debug(createdUser.id);
 
     const response = await GET_ID(
       new Request(`http://localhost:3000/api/users/${createdUser.id}`),

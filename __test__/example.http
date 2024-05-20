@@ -10,7 +10,7 @@ GET http://localhost:3000/api/users HTTP/1.1
 
 ###
 
-GET http://localhost:3000/api/users/127 HTTP/1.1
+GET http://localhost:3000/api/users/10 HTTP/1.1
 
 ###
 
@@ -24,7 +24,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:3000/api/users/127 HTTP/1.1
+PUT http://localhost:3000/api/users/37 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -34,7 +34,7 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/api/users/127 HTTP/1.1
+DELETE http://localhost:3000/api/users/37 HTTP/1.1
 
 ###
 # 投稿一覧取得
@@ -42,7 +42,7 @@ GET http://localhost:3000/api/posts HTTP/1.1
 
 ###
 # 特定の投稿を取得
-GET http://localhost:3000/api/posts/36 HTTP/1.1
+GET http://localhost:3000/api/posts/5 HTTP/1.1
 
 ###
 # 投稿を作成
@@ -53,12 +53,12 @@ Content-Type: application/json
   "title": "Test Post",
   "body": "This is a test post.",
   "tags": ["test", "example"],
-  "author_id": 182
+  "author_id": 10
 }
 
 ###
 # 投稿を更新
-PUT http://localhost:3000/api/posts/36 HTTP/1.1
+PUT http://localhost:3000/api/posts/6 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -69,4 +69,4 @@ Content-Type: application/json
 
 ###
 # 投稿を削除
-DELETE http://localhost:3000/api/posts/36 HTTP/1.1
+DELETE http://localhost:3000/api/posts/6 HTTP/1.1

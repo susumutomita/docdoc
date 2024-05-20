@@ -38,6 +38,15 @@ export async function PUT(
   { params }: { params: { id: string } },
 ) {
   try {
+    const postId = parseInt(params.id, 10);
+    const existingPost = await prisma.post.findUnique({
+      where: { id: postId },
+    });
+
+    if (!existingPost) {
+      return NextResponse.json({ message: 'Post not found' }, { status: 404 });
+    }
+
     const { title, body, draft, notice, tags, scope, published_at } =
       await request.json();
 
@@ -55,7 +64,7 @@ export async function PUT(
     }
 
     const post = await prisma.post.update({
-      where: { id: parseInt(params.id, 10) },
+      where: { id: postId },
       data: {
         title,
         body,
@@ -72,7 +81,7 @@ export async function PUT(
 
     // ポストとタグの関連付けをリセットして再設定
     await prisma.postTag.deleteMany({
-      where: { postId: parseInt(params.id, 10) },
+      where: { postId: postId },
     });
 
     if (tagIds.length > 0) {
@@ -110,11 +119,20 @@ export async function DELETE(
   { params }: { params: { id: string } },
 ) {
   try {
+    const postId = parseInt(params.id, 10);
+    const existingPost = await prisma.post.findUnique({
+      where: { id: postId },
+    });
+
+    if (!existingPost) {
+      return NextResponse.json({ message: 'Post not found' }, { status: 404 });
+    }
+
     await prisma.postTag.deleteMany({
-      where: { postId: parseInt(params.id, 10) },
+      where: { postId: postId },
     });
     await prisma.post.delete({
-      where: { id: parseInt(params.id, 10) },
+      where: { id: postId },
     });
     return new Response(null, { status: 204 });
   } catch (error) {
