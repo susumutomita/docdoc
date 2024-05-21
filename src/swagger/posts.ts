@@ -2,6 +2,7 @@ const postsSwagger = {
   paths: {
     '/api/posts': {
       get: {
+        tags: ['Posts'],
         summary: 'Retrieve all posts',
         responses: {
           200: {
@@ -36,6 +37,7 @@ const postsSwagger = {
         },
       },
       post: {
+        tags: ['Posts'],
         summary: 'Create a new post',
         requestBody: {
           required: true,
@@ -70,6 +72,7 @@ const postsSwagger = {
     },
     '/api/posts/{id}': {
       get: {
+        tags: ['Posts'],
         summary: 'Retrieve a post by ID',
         parameters: [
           {
@@ -82,22 +85,15 @@ const postsSwagger = {
           },
         ],
         responses: {
-          200: {
+          201: {
             description: 'A post object',
             content: {
               'application/json': {
                 schema: {
                   type: 'object',
                   properties: {
-                    id: { type: 'integer' },
-                    createdAt: { type: 'string', format: 'date-time' },
-                    updatedAt: { type: 'string', format: 'date-time' },
                     title: { type: 'string' },
                     body: { type: 'string' },
-                    draft: { type: 'boolean' },
-                    notice: { type: 'boolean' },
-                    scope: { type: 'string' },
-                    publishedAt: { type: 'string', format: 'date-time' },
                     authorId: { type: 'integer' },
                     tags: {
                       type: 'array',
@@ -114,6 +110,7 @@ const postsSwagger = {
         },
       },
       put: {
+        tags: ['Posts'],
         summary: 'Update a post by ID',
         parameters: [
           {
@@ -158,6 +155,7 @@ const postsSwagger = {
         },
       },
       delete: {
+        tags: ['Posts'],
         summary: 'Delete a post by ID',
         parameters: [
           {

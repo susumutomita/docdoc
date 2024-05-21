@@ -2,6 +2,7 @@ const usersSwagger = {
   paths: {
     '/api/users': {
       get: {
+        tags: ['Users'],
         summary: 'Retrieve all users',
         responses: {
           200: {
@@ -25,6 +26,7 @@ const usersSwagger = {
         },
       },
       post: {
+        tags: ['Users'],
         summary: 'Create a new user',
         requestBody: {
           required: true,
@@ -50,6 +52,7 @@ const usersSwagger = {
     },
     '/api/users/{id}': {
       get: {
+        tags: ['Users'],
         summary: 'Retrieve a user by ID',
         parameters: [
           {
@@ -80,6 +83,7 @@ const usersSwagger = {
         },
       },
       put: {
+        tags: ['Users'],
         summary: 'Update a user by ID',
         parameters: [
           {
@@ -113,6 +117,7 @@ const usersSwagger = {
         },
       },
       delete: {
+        tags: ['Users'],
         summary: 'Delete a user by ID',
         parameters: [
           {

@@ -1,0 +1,54 @@
+/* Tailwind CSSのクラスを使用してカスタムスタイルを追加します */
+
+/* 背景色を白に設定 */
+body {
+  @apply bg-white text-black;
+}
+
+.swagger-ui .topbar {
+  @apply bg-white;
+}
+
+.swagger-ui .info {
+  @apply bg-white text-black;
+}
+
+.swagger-ui .opblock {
+  @apply bg-white;
+}
+
+.swagger-ui .opblock .opblock-summary {
+  @apply bg-white border-gray-300;
+}
+
+.swagger-ui .opblock .opblock-summary-method {
+  @apply bg-gray-300 text-black;
+}
+
+.swagger-ui .opblock .opblock-summary-path {
+  @apply text-black;
+}
+
+.swagger-ui .opblock .opblock-summary-description {
+  @apply text-black;
+}
+
+.swagger-ui a {
+  @apply text-blue-600;
+}
+
+.swagger-ui .opblock-get .opblock-summary-method {
+  @apply bg-green-500;
+}
+
+.swagger-ui .opblock-post .opblock-summary-method {
+  @apply bg-blue-500;
+}
+
+.swagger-ui .opblock-put .opblock-summary-method {
+  @apply bg-yellow-500;
+}
+
+.swagger-ui .opblock-delete .opblock-summary-method {
+  @apply bg-red-500;
+}

@@ -53,7 +53,7 @@ Content-Type: application/json
   "title": "Test Post",
   "body": "This is a test post.",
   "tags": ["test", "example"],
-  "author_id": 10
+  "author_id": 335
 }
 
 ###
