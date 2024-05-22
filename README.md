@@ -1,4 +1,5 @@
 <!-- textlint-disable ja-technical-writing/sentence-length -->
+
 [![CI](https://github.com/susumutomita/docdoc/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/susumutomita/docdoc/actions/workflows/ci.yml)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsusumutomita%2Fdocdoc.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsusumutomita%2Fdocdoc?ref=badge_shield)
 [![textlint](https://github.com/susumutomita/docdoc/actions/workflows/textlint.yml/badge.svg?branch=main)](https://github.com/susumutomita/docdoc/actions/workflows/textlint.yml)
@@ -15,6 +16,7 @@
 <!-- textlint-enable -->
 
 ## DocDoc
+
 Welcome to **DocDoc**, the ultimate knowledge sharing platform. Create and share articles effortlessly, and collaborate with peers. Enjoy automatic text linting for flawless writing. With our AI-powered local LLM, you can review and refine your content like never before. Join us and experience the future of content creation.
 
 ## Getting Started
