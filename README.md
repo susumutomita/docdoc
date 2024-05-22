@@ -15,7 +15,7 @@
 
 <!-- textlint-enable -->
 
-## DocDoc
+# DocDoc
 
 Welcome to **DocDoc**, the ultimate knowledge sharing platform. Create and share articles effortlessly, and collaborate with peers. Enjoy automatic text linting for flawless writing. With our AI-powered local LLM, you can review and refine your content like never before. Join us and experience the future of content creation.
 
@@ -25,10 +25,6 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -45,6 +41,21 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome.
+
+## Design
+
+This project’s design from the beautiful and functional design elements found at [Flowrift](https://flowrift.com/c/cta/nCrLz?view=code).
+
+## Technology Stack
+
+- **Frontend**: Built with Next.js and React, utilizing Tailwind CSS for styling.
+- **Backend**: Uses Prisma with a PostgreSQL database for efficient data management.
+- **Linting**: Automated text linting with TextLint to maintain high-quality content.
+- **AI Integration**: Local LLM for AI-powered content review and refinement.
+
+## Contribution
+
+We welcome contributions from the community. Please submit proposals via pull requests or issues.
 
 ## License
 
