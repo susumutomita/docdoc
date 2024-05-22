@@ -7,17 +7,16 @@ const Home = () => {
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
         <div className="mx-auto flex max-w-xl flex-col items-center text-center">
           <p className="mb-4 font-semibold text-indigo-500 md:mb-6 md:text-lg xl:text-xl">
-            Proud to introduce
+            DocDoc
           </p>
           <h1 className="mb-8 text-3xl font-bold text-black sm:text-4xl md:mb-12 md:text-5xl">
-            Revolutionary way to build the web
+            Share your knowledge.
           </h1>
           <p className="mb-8 text-lg text-gray-700 md:mb-12 md:text-xl">
-            Welcome to DocDoc, the ultimate knowledge sharing platform. Create
-            and share articles effortlessly, collaborate with peers, and enjoy
-            automatic text linting for flawless writing. With our AI-powered
-            local LLM, you can review and refine your content like never before.
-            Join us and experience the future of content creation.
+            Create and share articles effortlessly, collaborate with peers, and
+            enjoy automatic text linting for flawless writing. With our
+            AI-powered local LLM, you can review and refine your content like
+            never before. Join us and experience the future of content creation.
           </p>
           <div className="flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
             <Link

@@ -1,13 +1,21 @@
-# docdoc
-
 <!-- textlint-disable ja-technical-writing/sentence-length -->
-
-[![CI](https://github.com/susumutomita/docdoc/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/susumutomita/docdoc/actions/workflows/ci.yml)[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsusumutomita%2Fdocdoc.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsusumutomita%2Fdocdoc?ref=badge_shield)[![textlint](https://github.com/susumutomita/docdoc/actions/workflows/textlint.yml/badge.svg?branch=main)](https://github.com/susumutomita/docdoc/actions/workflows/textlint.yml)[![Coverage Status](https://coveralls.io/repos/github/susumutomita/docdoc/badge.svg?branch=main)](https://coveralls.io/github/susumutomita/docdoc?branch=main)![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/susumutomita/docdoc)![GitHub top language](https://img.shields.io/github/languages/top/susumutomita/docdoc)![GitHub pull requests](https://img.shields.io/github/issues-pr/susumutomita/docdoc)![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/susumutomita/docdoc)![GitHub repo size](https://img.shields.io/github/repo-size/susumutomita/docdoc)[![Tryvy](https://github.com/susumutomita/docdoc/actions/workflows/tryvy.yml/badge.svg?branch=main)](https://github.com/susumutomita/docdoc/actions/workflows/tryvy.yml)[![Snyk](https://github.com/susumutomita/docdoc/actions/workflows/snyk.yml/badge.svg)](https://github.com/susumutomita/docdoc/actions/workflows/snyk.yml)
+[![CI](https://github.com/susumutomita/docdoc/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/susumutomita/docdoc/actions/workflows/ci.yml)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsusumutomita%2Fdocdoc.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsusumutomita%2Fdocdoc?ref=badge_shield)
+[![textlint](https://github.com/susumutomita/docdoc/actions/workflows/textlint.yml/badge.svg?branch=main)](https://github.com/susumutomita/docdoc/actions/workflows/textlint.yml)
+[![Coverage Status](https://coveralls.io/repos/github/susumutomita/docdoc/badge.svg?branch=main)](https://coveralls.io/github/susumutomita/docdoc?branch=main)
+![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/susumutomita/docdoc)
+![GitHub top language](https://img.shields.io/github/languages/top/susumutomita/docdoc)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/susumutomita/docdoc)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/susumutomita/docdoc)
+![GitHub repo size](https://img.shields.io/github/repo-size/susumutomita/docdoc)
+[![Tryvy](https://github.com/susumutomita/docdoc/actions/workflows/tryvy.yml/badge.svg?branch=main)](https://github.com/susumutomita/docdoc/actions/workflows/tryvy.yml)
+[![Snyk](https://github.com/susumutomita/docdoc/actions/workflows/snyk.yml/badge.svg)](https://github.com/susumutomita/docdoc/actions/workflows/snyk.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/947cdef68b8224d23860/maintainability)](https://codeclimate.com/github/susumutomita/docdoc/maintainability)
 
 <!-- textlint-enable -->
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## DocDoc
+Welcome to **DocDoc**, the ultimate knowledge sharing platform. Create and share articles effortlessly, and collaborate with peers. Enjoy automatic text linting for flawless writing. With our AI-powered local LLM, you can review and refine your content like never before. Join us and experience the future of content creation.
 
 ## Getting Started
 
