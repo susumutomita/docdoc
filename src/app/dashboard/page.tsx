@@ -38,28 +38,28 @@ const Dashboard = () => {
   return (
     <div>
       <Navbar />
-      <div className="container mx-auto p-4">
+      <div className="container">
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-2xl font-bold">ダッシュボード</h1>
-          <button className="btn btn-primary">新しいメモを作成</button>
+          <h1 className="text-3xl font-bold">ダッシュボード</h1>
+          <button className="btn-primary">新しいメモを作成</button>
         </div>
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col md:flex-row gap-4">
           <div className="w-full md:w-3/4">
-            <div className="bg-white p-4 rounded-lg shadow-md mb-8">
-              <h2 className="text-lg font-bold">更新されたメモ</h2>
+            <div className="card">
+              <h2 className="card-header">更新されたメモ</h2>
               <ul>
                 {posts.map(post => (
                   <li
                     key={post.id}
-                    className="border-b last:border-b-0 py-2 flex justify-between items-center"
+                    className="border-b border-gray-700 last:border-b-0 py-2 flex justify-between items-center"
                   >
                     <div>
                       <h3 className="font-bold">{post.title}</h3>
-                      <p className="text-sm text-gray-500">
+                      <p className="card-body">
                         {post.category} - {post.author.name}
                       </p>
                     </div>
-                    <div className="text-sm text-gray-500">
+                    <div className="text-sm text-gray-400">
                       {new Date(post.createdAt).toLocaleString()}
                     </div>
                   </li>
@@ -67,18 +67,18 @@ const Dashboard = () => {
               </ul>
             </div>
           </div>
-          <div className="w-full md:w-1/4 md:pl-4">
-            <div className="bg-white p-4 rounded-lg shadow-md mb-8">
-              <h2 className="text-lg font-bold">最近見たメモ</h2>
-              <p>現在見ているメモはありません。</p>
+          <div className="w-full md:w-1/4">
+            <div className="card">
+              <h2 className="card-header">最近見たメモ</h2>
+              <p className="card-body">現在見ているメモはありません。</p>
             </div>
           </div>
         </div>
         <div className="text-center mt-8">
-          <Link href="/users" className="btn btn-secondary mr-4">
+          <Link href="/users" className="btn-secondary mr-4">
             ユーザーを作成
           </Link>
-          <Link href="/api-docs" className="btn btn-secondary">
+          <Link href="/api-docs" className="btn-secondary">
             APIドキュメント
           </Link>
         </div>

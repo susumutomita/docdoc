@@ -3,25 +3,33 @@ import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100 shadow-lg">
+    <div className="navbar bg-gray-800 shadow-lg p-4">
       <div className="navbar-start">
-        <a className="btn btn-ghost normal-case text-xl">DocDoc</a>
+        <Link href="/" className="btn btn-ghost normal-case text-xl text-white">
+          DocDoc
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           <li>
-            <Link href="/dashboard">ダッシュボード</Link>
+            <Link href="/dashboard" className="text-white">
+              ダッシュボード
+            </Link>
           </li>
           <li>
-            <Link href="/groups">グループから探す</Link>
+            <Link href="/groups" className="text-white">
+              グループから探す
+            </Link>
           </li>
           <li>
-            <Link href="/tags">タグから探す</Link>
+            <Link href="/tags" className="text-white">
+              タグから探す
+            </Link>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">ログアウト</a>
+        <a className="btn btn-ghost normal-case text-white">ログアウト</a>
       </div>
     </div>
   );
