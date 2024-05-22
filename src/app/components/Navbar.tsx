@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100 shadow-lg">
       <div className="navbar-start">
-        <a className="btn btn-ghost normal-case text-xl">DocBase</a>
+        <a className="btn btn-ghost normal-case text-xl">DocDoc</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
