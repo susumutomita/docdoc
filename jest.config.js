@@ -9,8 +9,25 @@ module.exports = {
     '\\.(css)$': '<rootDir>/node_modules/jest-css-modules',
   },
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
-  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
   transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest',
+    '^.+\\.(ts|tsx)$': 'babel-jest',
   },
+  projects: [
+    {
+      displayName: 'backend',
+      testEnvironment: 'node',
+      testMatch: [
+        '**/__tests__/backend/**/*.[jt]s?(x)',
+        '**/?(*.)+(spec|test).[jt]s?(x)',
+      ],
+    },
+    // {
+    //   displayName: 'frontend',
+    //   testEnvironment: 'jsdom',
+    //   testMatch: [
+    //     '**/__tests__/frontend/**/*.[jt]s?(x)',
+    //     '**/?(*.)+(spec|test).[jt]s?(x)',
+    //   ],
+    // },
+  ],
 };

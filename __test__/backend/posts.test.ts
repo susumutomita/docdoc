@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
-import { POST as POST_USER } from '../src/app/api/users/route';
-import { POST, GET } from '../src/app/api/posts/route';
-import { GET as GET_ID, PUT, DELETE } from '../src/app/api/posts/[id]/route';
+import { POST as POST_USER } from '../../src/app/api/users/route';
+import { POST, GET } from '../../src/app/api/posts/route';
+import { GET as GET_ID, PUT, DELETE } from '../../src/app/api/posts/[id]/route';
 
 const prisma = new PrismaClient();
 

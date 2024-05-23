@@ -1,5 +1,5 @@
-import { POST, GET } from '../src/app/api/users/route';
-import { GET as GET_ID, PUT, DELETE } from '../src/app/api/users/[id]/route';
+import { POST, GET } from '../../src/app/api/users/route';
+import { GET as GET_ID, PUT, DELETE } from '../../src/app/api/users/[id]/route';
 
 describe('Users API', () => {
   it('should create a user and return 201 status', async () => {
