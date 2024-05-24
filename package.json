@@ -48,7 +48,7 @@
     "seed": "ts-node src/app/prisma/seed.ts"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.24.5",
+    "@babel/preset-env": "^7.24.6",
     "@babel/preset-typescript": "^7.24.1",
     "@mermaid-js/mermaid-cli": "^10.9.1",
     "@prisma/generator-helper": "^5.14.0",
