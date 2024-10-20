@@ -1,5 +1,5 @@
 # ベースイメージを指定
-FROM node:18.20.2
+FROM node:18.20.3
 
 # 作業ディレクトリを指定
 WORKDIR /app
