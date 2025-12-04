@@ -5,11 +5,12 @@ const prisma = new PrismaClient();
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
+    const { id } = await params;
     const post = await prisma.post.findUnique({
-      where: { id: parseInt(params.id, 10) },
+      where: { id: parseInt(id, 10) },
       include: {
         tags: true,
         author: true,
@@ -35,10 +36,11 @@ export async function GET(
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const postId = parseInt(params.id, 10);
+    const { id } = await params;
+    const postId = parseInt(id, 10);
     const existingPost = await prisma.post.findUnique({
       where: { id: postId },
     });
@@ -116,10 +118,11 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    const postId = parseInt(params.id, 10);
+    const { id } = await params;
+    const postId = parseInt(id, 10);
     const existingPost = await prisma.post.findUnique({
       where: { id: postId },
     });
