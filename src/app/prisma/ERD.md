@@ -3,36 +3,36 @@ erDiagram
 
   "Post" {
     Int id "🗝️"
-    DateTime createdAt
-    DateTime updatedAt
-    String title
+    DateTime createdAt 
+    DateTime updatedAt 
+    String title 
     String body "❓"
-    Boolean draft
-    Boolean notice
-    String scope
+    Boolean draft 
+    Boolean notice 
+    String scope 
     DateTime publishedAt "❓"
-    Int authorId
+    Int authorId 
     }
-
+  
 
   "User" {
     Int id "🗝️"
-    String email
+    String email 
     String name "❓"
     }
-
+  
 
   "Tag" {
     Int id "🗝️"
-    String name
+    String name 
     }
-
+  
 
   "PostTag" {
     Int postId "🗝️"
     Int tagId "🗝️"
     }
-
+  
     "Post" o|--|| "User" : "author"
     "Post" o{--}o "PostTag" : "tags"
     "User" o{--}o "Post" : "posts"

@@ -5,10 +5,10 @@ const prisma = new PrismaClient();
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
-  const { id } = params;
   try {
+    const { id } = await params;
     const user = await prisma.user.findUnique({
       where: { id: parseInt(id) },
     });
@@ -30,11 +30,11 @@ export async function GET(
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
-  const { id } = params;
-  const { email, name } = await request.json();
   try {
+    const { id } = await params;
+    const { email, name } = await request.json();
     const user = await prisma.user.update({
       where: { id: parseInt(id) },
       data: { email, name },
@@ -53,10 +53,10 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
-  const { id } = params;
   try {
+    const { id } = await params;
     await prisma.user.delete({
       where: { id: parseInt(id) },
     });
