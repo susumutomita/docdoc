@@ -36,25 +36,31 @@ jobs:
         with:
           node-version: 20
 
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
       - name: Install dependencies
-        run: npm install
+        run: bun install
+
       - name: Debug dependencies
         run: |
           ls node_modules/@testing-library
-          npm list @testing-library/jest-dom
+          bun pm ls @testing-library/jest-dom
 
       - name: Check formatting
-        run: npm run format:check
+        run: bun run format:check
 
       - name: Run ESLint
-        run: npm run lint
+        run: bun run lint
 
       - name: Run tests with coverage
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
-          npm run db:migrate
-          npm run test:coverage
+          bun run db:migrate
+          bun run test:coverage
 
       - name: Coveralls
         uses: coverallsapp/github-action@v2

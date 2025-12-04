@@ -12,10 +12,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm install
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install
       - name: makeERD
         run: |
-          npm run db:generate
+          bun run db:generate
       - id: checkErdDiff
         run: echo "changed=$(git diff --name-only src/app/prisma/ERD.md)" >> $GITHUB_OUTPUT
       - run: echo ${{ steps.checkErdDiff.outputs.changed}}
