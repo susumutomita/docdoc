@@ -4,7 +4,7 @@
     "": {
       "name": "docdoc",
       "dependencies": {
-        "@prisma/client": "^5.20.0",
+        "@prisma/client": "5.22.0",
         "@types/swagger-jsdoc": "^6.0.4",
         "@types/swagger-ui-dist": "^3.30.4",
         "@types/swagger-ui-express": "^4.1.6",
@@ -25,7 +25,7 @@
         "@babel/preset-env": "^7.25.0",
         "@babel/preset-typescript": "^7.25.7",
         "@mermaid-js/mermaid-cli": "^10.9.1",
-        "@prisma/generator-helper": "^5.20.0",
+        "@prisma/generator-helper": "5.22.0",
         "@testing-library/jest-dom": "^6.4.2",
         "@testing-library/react": "^14.3.0",
         "@types/jest": "^29.5.12",
@@ -46,7 +46,7 @@
         "lint-staged": "^14.0.1",
         "postcss": "^8.4.38",
         "prettier": "^3.2.5",
-        "prisma": "^5.20.0",
+        "prisma": "5.22.0",
         "prisma-erd-generator": "^1.11.2",
         "snyk": "^1.1293.1",
         "supertest": "^7.0.0",
@@ -460,7 +460,7 @@
 
     "@pkgr/core": ["@pkgr/core@0.1.1", "", {}, "sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA=="],
 
-    "@prisma/client": ["@prisma/client@5.20.0", "", { "peerDependencies": { "prisma": "*" } }, "sha512-CLv55ZuMuUawMsxoqxGtLT3bEZoa2W8L3Qnp6rDIFWy+ZBrUcOFKdoeGPSnbBqxc3SkdxJrF+D1veN/WNynZYA=="],
+    "@prisma/client": ["@prisma/client@5.22.0", "", { "peerDependencies": { "prisma": "*" }, "optionalPeers": ["prisma"] }, "sha512-M0SVXfyHnQREBKxCgyo7sffrKttwE6R8PMq330MIUF0pTwjUhLbW84pFDlf06B27XyCR++VtjugEnIHdr07SVA=="],
 
     "@prisma/debug": ["@prisma/debug@5.22.0", "", {}, "sha512-AUt44v3YJeggO2ZU5BkXI7M4hu9BF2zzH2iF2V5pyXT/lRTyWiElZ7It+bRH1EshoMRxHgpYg4VB6rCM+mG5jQ=="],
 
