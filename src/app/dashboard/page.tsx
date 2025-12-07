@@ -41,9 +41,12 @@ const Dashboard = () => {
       <div className="container mx-auto p-4">
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-3xl font-bold">Dashboard</h1>
-          <button className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">
+          <Link
+            href="/posts/create"
+            className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base"
+          >
             Create New Post
-          </button>
+          </Link>
         </div>
         <div className="flex flex-col md:flex-row gap-4">
           <div className="w-full md:w-3/4">
