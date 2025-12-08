@@ -9,6 +9,8 @@ module.exports = {
     '\\.(css)$': '<rootDir>/node_modules/jest-css-modules',
   },
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
+  watchman: false,
+  setupFiles: ['<rootDir>/jest.env.ts'],
   transform: {
     '^.+\\.(ts|tsx)$': 'babel-jest',
   },
@@ -16,6 +18,11 @@ module.exports = {
     {
       displayName: 'backend',
       testEnvironment: 'node',
+      setupFiles: ['<rootDir>/jest.env.ts'],
+      setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+      transform: {
+        '^.+\\.(ts|tsx)$': 'babel-jest',
+      },
       testMatch: [
         '**/__tests__/backend/**/*.[jt]s?(x)',
         '**/?(*.)+(spec|test).[jt]s?(x)',
