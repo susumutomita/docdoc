@@ -1,0 +1,2 @@
+# Prisma generated ERD has trailing spaces that conflict with Prettier
+src/app/prisma/ERD.md
