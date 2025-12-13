@@ -34,7 +34,7 @@ db-migrate: db-up
 		echo "Waiting for database to be ready..."; \
 		until docker compose exec -T db pg_isready -U user -d user >/dev/null 2>&1; do sleep 1; done; \
 	fi
-	DATABASE_URL=$(EFFECTIVE_DB_URL) npx prisma migrate deploy --schema ./src/app/prisma/schema.prisma
+	DATABASE_URL=$(EFFECTIVE_DB_URL) bun prisma migrate deploy --schema ./src/app/prisma/schema.prisma
 
 test: db-migrate
 	DATABASE_URL=$(EFFECTIVE_DB_URL) $(PKG) run test
