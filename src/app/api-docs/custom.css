@@ -1,3 +1,9 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light, dark;
+}
+@source "../../**/*.{js,ts,jsx,tsx,mdx}";
+
 /* Tailwind CSSのクラスを使用してカスタムスタイルを追加します */
 
 /* 背景色を白に設定 */

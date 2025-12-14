@@ -8,6 +8,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+permissions:
+  contents: read
+  security-events: write
+
 jobs:
   snyk:
     runs-on: ubuntu-latest
@@ -17,9 +21,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
       - name: Install dependencies
-        run: npm install
+        run: bun install
       - name: Run Snyk for vulnerability check
-        run: npx snyk test
+        run: bunx snyk test
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
