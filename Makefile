@@ -1,5 +1,5 @@
-# Convenience targets for local workflows. Set `PKG=bun` if you prefer Bun.
-PKG ?= npm
+# Convenience targets for local workflows. Set `PKG=npm` if you prefer npm.
+PKG ?= bun
 DB_URL ?= postgresql://user:password@localhost:5432/user
 EFFECTIVE_DB_URL := $(if $(DATABASE_URL),$(DATABASE_URL),$(DB_URL))
 

@@ -7,6 +7,7 @@ module.exports = {
   testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
   moduleNameMapper: {
     '\\.(css)$': '<rootDir>/node_modules/jest-css-modules',
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
   watchman: false,
@@ -22,6 +23,10 @@ module.exports = {
       setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
       transform: {
         '^.+\\.(ts|tsx)$': 'babel-jest',
+      },
+      moduleNameMapper: {
+        '\\.(css)$': '<rootDir>/node_modules/jest-css-modules',
+        '^@/(.*)$': '<rootDir>/src/$1',
       },
       testMatch: [
         '**/__tests__/backend/**/*.[jt]s?(x)',

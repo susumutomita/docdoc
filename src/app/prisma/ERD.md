@@ -33,10 +33,7 @@ erDiagram
     Int tagId "🗝️"
     }
   
-    "Post" o|--|| "User" : "author"
-    "Post" o{--}o "PostTag" : "tags"
-    "User" o{--}o "Post" : "posts"
-    "Tag" o{--}o "PostTag" : "posts"
-    "PostTag" o|--|| "Post" : "post"
-    "PostTag" o|--|| "Tag" : "tag"
+    "Post" }o--|| "User" : "author"
+    "PostTag" }o--|| "Post" : "post"
+    "PostTag" }o--|| "Tag" : "tag"
 ```
