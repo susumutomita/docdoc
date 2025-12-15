@@ -26,7 +26,7 @@
     "db:studio": "bun prisma studio --schema ./src/app/prisma/schema.prisma"
   },
   "dependencies": {
-    "@prisma/client": "5.22.0",
+    "@prisma/client": "7.1.0",
     "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-dist": "^3.30.4",
     "@types/swagger-ui-express": "^4.1.6",
